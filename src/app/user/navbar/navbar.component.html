@@ -1,0 +1,63 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-primary fixed-top" >
+  <!-- Container wrapper -->
+  <div class="container-fluid btn-group dropstart">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse ps-5" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="" >
+        <img
+          src="../../../assets/logo-1.png"
+          height="50"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a>
+      <h1>Epic Games</h1>
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center me-5">
+
+      <div *ngIf="loggedIn">
+        <h4>{{ this.userData?.firstName }}</h4>
+      </div>
+      <!-- Avatar -->
+      <div class="dropdown" *ngIf="!loggedIn">
+        <a class="bg-transparent dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../../../assets/icon-new.jpg" class="rounded-circle" height="35" alt="Black and White Portrait of a Man" loading="lazy">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-start dropdown-menu-left" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" routerLink="login">LOGIN</a></li>
+          <li><a class="dropdown-item" routerLink="signup">SIGNUP</a></li>
+        </ul>
+      </div>
+      <div class="dropdown" *ngIf="loggedIn">
+        <a class="bg-transparent dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="{{ imageSrc }}" class="rounded-circle" style="width: 40px; height: 40px;" alt="Black and White Portrait of a Man" loading="lazy">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-start dropdown-menu-left" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" routerLink="profile">PROFILE</a></li>
+          <li><a class="dropdown-item" (click)="logout()" type="button" >LOG OUT</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->

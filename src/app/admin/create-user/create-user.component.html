@@ -1,0 +1,124 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="bg-secondary">
+  <div class="container pt-5">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+
+      <div class="form-outline mb-5 d-flex flex-column align-items-center">
+        <img
+          src="{{ imageSrc }}"
+          style="height: 200px;width: 200px;"
+          class="mb-3 rounded-circle"
+          id="preview"
+          alt=""
+        />
+        <input type="file" id="form6Example3" class="form-control w-25" name="image" accept="image/jpeg,image/png,image/gif,image/jpg,image/webp"
+        formControlName="image"
+        [ngClass]="{ 'is-invalid': submit && f['image'].errors }"
+        (change)="onImageChange($event)"
+        />
+        <div *ngIf="submit && f['image'].errors" class="invalid-feedback d-flex justify-content-center align-items-center " >
+          <div *ngIf="f['image'].errors?.['invalidFileType']">
+            Invalid file type. Allowed types: JPEG, JPG, WEBP, PNG, GIF.
+          </div>
+          <div *ngIf="f['image'].errors?.['invalidFileSize']"  >
+            File size must be less than 4MB.
+          </div>
+        </div>
+
+        <label class="form-label mb-4" for="form6Example3"
+          >Profile Picture</label
+        >
+      </div>
+      <div class="row mb-4">
+        <div class="col">
+          <div class="form-outline">
+            <input
+              type="text"
+              id="form6Example1"
+              name="firstName"
+              class="form-control"
+              formControlName="firstName"
+              [ngClass]="{ 'is-invalid': submit && f['firstName'].errors }"
+            />
+            <div *ngIf="submit && f['firstName'].errors" class="invalid-feedback">
+              <div *ngIf="f['firstName'].errors['required']">
+                First Name is required
+              </div>
+              <div *ngIf="f['firstName'].errors['pattern']">
+                Required some Alphabets
+              </div>
+            </div>
+            <label class="form-label" for="form6Example1">First name</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-outline">
+            <input
+              type="text"
+              name="lastName"
+              id="form6Example2"
+              class="form-control"
+              formControlName="lastName"
+              [ngClass]="{ 'is-invalid': submit && f['lastName'].errors }"
+            />
+            <div *ngIf="submit && f['lastName'].errors" class="invalid-feedback">
+              <div *ngIf="f['lastName'].errors['required']">
+                First Name is required
+              </div>
+              <div *ngIf="f['lastName'].errors['pattern']">
+                Required some Alphabets
+              </div>
+            </div>
+            <label class="form-label" for="form6Example2">Last name</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-mail input -->
+      <div class="form-outline mb-4">
+        <input
+          type="email"
+          name="email"
+          id="form6Example3"
+          class="form-control"
+          formControlName="email"
+          [ngClass]="{ 'is-invalid': submit && f['email'].errors }"
+        />
+        <div *ngIf="submit && f['email'].errors" class="invalid-feedback">
+          <div *ngIf="f['email'].errors['required']">E-mail is required</div>
+          <div *ngIf="f['email'].errors['email']">E-mail is invalid</div>
+        </div>
+        <label class="form-label" for="form6Example3">E-mail</label>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4" *ngIf="!id">
+        <input
+          type="text"
+          name="password"
+          id="form6Example4"
+          class="form-control"
+          formControlName="password"
+          required
+          [ngClass]="{ 'is-invalid': submit && f['password'].errors }"
+        />
+        <div *ngIf="submit && f['password'].errors" class="invalid-feedback">
+          <div *ngIf="f['password'].errors['required']">password is required</div>
+          <div *ngIf="f['password'].errors['pattern']">
+            Password contain minimum 6 letters and combination of Alphabets and
+            numbers and a special character
+          </div>
+        </div>
+        <label class="form-label" for="form6Example4">Password</label>
+      </div>
+
+      <!-- Submit button -->
+      <div class="d-flex justify-content-center align-items-center">
+        <button type="submit" class="btn btn-primary btn-block mb-4">
+          submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
