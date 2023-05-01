@@ -90,7 +90,8 @@ export class ProfileComponent implements OnInit {
         this.backendService.profileUpload(formData, this.id).subscribe((result: any) => {
 
           if (result.status) {
-            this.toastr.success('Profile updated Successfully!', 'Success');
+            const button = document.getElementById('saveButton') as HTMLImageElement;
+            button.style.display = "none";
             this.router.navigate(['/profile']);
           }
 

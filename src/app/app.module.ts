@@ -15,7 +15,7 @@ import { NavbarComponent } from './user/navbar/navbar.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule,FormsModule } from "@angular/forms";
 import { TokenInterceptor } from './token.interceptor';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
 import { CreateUserComponent } from './admin/create-user/create-user.component';
@@ -46,7 +46,8 @@ import { CreateUserComponent } from './admin/create-user/create-user.component';
     }),
     BrowserAnimationsModule,
     StoreModule.forRoot({}),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    FormsModule
   ],
   providers: [
     {

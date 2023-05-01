@@ -1,11 +1,21 @@
 <app-admin-navbar></app-admin-navbar>
 
 <div class="container-fluid p-5 bg-secondary">
+  <div class="col float-start p-3">
+
+      <input
+        type="text"
+        id="form6Example1"
+        name="firstName"
+        class="form-control"
+        placeholder="Search here..."
+        (keyup)="onKeyUp($event)"
+      />
+  </div>
   <div class="float-end p-3">
     <button class="btn btn-primary" routerLink="../createuser">CREATE<i class="bi bi-plus " style="font-size:larger;font-weight: bolder;"></i></button>
   </div>
   <table class="table align-middle mb-0 bg-white">
-
     <thead class="bg-light">
       <tr>
         <th>Image</th>
@@ -25,7 +35,6 @@
               style="width: 45px; height: 45px"
               class="rounded-circle"
             />
-
           </div>
         </td>
         <td>
