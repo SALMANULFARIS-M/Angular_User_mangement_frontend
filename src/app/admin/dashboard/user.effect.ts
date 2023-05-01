@@ -15,7 +15,7 @@ export class userEffect {
             ofType(invokeUserAPI),
             switchMap(() => {
                 return this.backendService.getUser().pipe(
-                    tap((data) => console.log(data, "this is data")),
+                    tap((data) => console.log(data)),
                     map((data) => FetchUserAPI({ allUser: data })
                     )
                 )
