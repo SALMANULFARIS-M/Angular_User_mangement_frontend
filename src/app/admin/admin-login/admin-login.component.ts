@@ -44,7 +44,7 @@ export class AdminLoginComponent implements OnInit {
         if (this.logged) {
           localStorage.setItem('adminToken', "" + result.token) //local storage save
           this.cookieService.set('adminjwt', result.token, 2); // 2 days expiration
-          this.router.navigate(['/admin/dashboard']);
+          this.router.navigate(['/admin/dashboard']);//navigate
         }
 
       }, (error: any) => {
