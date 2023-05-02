@@ -19,6 +19,8 @@ import { ReactiveFormsModule,FormsModule } from "@angular/forms";
 import { TokenInterceptor } from './token.interceptor';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
 import { CreateUserComponent } from './admin/create-user/create-user.component';
+import { UserReducer } from './store/user.reducer';
+import { userEffect } from './admin/dashboard/user.effect';
 
 
 @NgModule({
@@ -45,8 +47,8 @@ import { CreateUserComponent } from './admin/create-user/create-user.component';
       preventDuplicates: true,
     }),
     BrowserAnimationsModule,
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot({allUser:UserReducer}),
+    EffectsModule.forRoot([userEffect]),
     FormsModule
   ],
   providers: [

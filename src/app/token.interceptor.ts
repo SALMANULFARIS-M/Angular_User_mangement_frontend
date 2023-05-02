@@ -20,7 +20,6 @@ export class TokenInterceptor implements HttpInterceptor {
     this.token = isAdminRequest ? "admin" : "user";
 
     let authService = this.backendService.getToken(this.token);
-
     if (authService) {
       const headers = {
         Authorization: 'Bearer' + authService

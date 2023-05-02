@@ -92,6 +92,7 @@ export class ProfileComponent implements OnInit {
           if (result.status) {
             const button = document.getElementById('saveButton') as HTMLImageElement;
             button.style.display = "none";
+            this.toastr.success('Profile updated Successfully!', 'Success');
             this.router.navigate(['/profile']);
           }
 
